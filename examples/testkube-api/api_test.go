@@ -21,15 +21,6 @@ var _ = Describe("API Test", func() {
 		Expect(err).To(BeNil())
 		Expect(len(executors)).To(BeNumerically(">", 1))
 	})
-	It("There should be executors registered2", func() {
-		resp, err := http.Get("https://demo.testkube.io/results/v1/executors1")
-		Expect(err).To(BeNil())
-
-		executors, err := GetTestkubeExecutors(resp.Body)
-
-		Expect(err).To(BeNil())
-		Expect(len(executors)).To(BeNumerically(">", 1))
-	})
 })
 
 func GetTestkubeExecutors(body io.ReadCloser) ([]testkube.ExecutorDetails, error) {
